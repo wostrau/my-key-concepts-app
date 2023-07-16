@@ -2,8 +2,10 @@ import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
 import eventsImage from './assets/images/events.png';
 import Header from './components/Header/Header';
+import ConceptsList from './components/ConceptsList/ConceptsList';
+import React from 'react';
 
-type ConceptType = { title: string; image: string; description: string };
+export type ConceptType = { title: string; image: string; description: string };
 const concepts: ConceptType[] = [
   {
     title: 'Components',
@@ -25,21 +27,11 @@ const concepts: ConceptType[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <Header />
-      <ul id='concepts'>
-        {concepts.map((concept, index) => {
-          return (
-            <li key={index} className='concept'>
-              <img src={concept.image} alt={concept.title} />
-              <h2>{concept.title}</h2>
-              <p>{concept.description}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <ConceptsList concepts={concepts} />
     </div>
   );
 };
