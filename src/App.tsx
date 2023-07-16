@@ -1,7 +1,7 @@
-import keyConceptsImage from './assets/images/key-concepts.png';
 import componentsImage from './assets/images/components.png';
 import stateImage from './assets/images/state.png';
 import eventsImage from './assets/images/events.png';
+import Header from './components/Header/Header';
 
 type ConceptType = { title: string; image: string; description: string };
 const concepts: ConceptType[] = [
@@ -28,15 +28,11 @@ const concepts: ConceptType[] = [
 const App = () => {
   return (
     <div>
-      <header>
-        <img src={keyConceptsImage} alt='Medal badge with a star' />
-        <h1>Key React Concepts</h1>
-        <p>Selected key React concepts you should know about</p>
-      </header>
+      <Header />
       <ul id='concepts'>
-        {concepts.map((concept) => {
+        {concepts.map((concept, index) => {
           return (
-            <li className='concept'>
+            <li key={index} className='concept'>
               <img src={concept.image} alt={concept.title} />
               <h2>{concept.title}</h2>
               <p>{concept.description}</p>
